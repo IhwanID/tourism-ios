@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,16 @@
 		60025C1C254C012900B9D7FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C1B254C012900B9D7FE /* ContentView.swift */; };
 		60025C1E254C012A00B9D7FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60025C1D254C012A00B9D7FE /* Assets.xcassets */; };
 		60025C21254C012A00B9D7FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60025C20254C012A00B9D7FE /* Preview Assets.xcassets */; };
+		60025C2B254C077200B9D7FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 60025C2A254C077200B9D7FE /* RealmSwift */; };
+		60025C2F254C083F00B9D7FE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 60025C2E254C083F00B9D7FE /* Alamofire */; };
+		60025C32254DE51C00B9D7FE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C31254DE51C00B9D7FE /* HomeView.swift */; };
+		60025C3B254DEAC100B9D7FE /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C3A254DEAC100B9D7FE /* Place.swift */; };
+		60025C42254DF12600B9D7FE /* PlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C41254DF12600B9D7FE /* PlaceResponse.swift */; };
+		60025C45254DF31700B9D7FE /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C44254DF31700B9D7FE /* RemoteDataSource.swift */; };
+		60025C48254DF3FF00B9D7FE /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C47254DF3FF00B9D7FE /* PlaceRepository.swift */; };
+		60025C4C254DF50F00B9D7FE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C4B254DF50F00B9D7FE /* CustomError.swift */; };
+		60025C4F254DF5FE00B9D7FE /* PlaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */; };
+		60025C54254DF64800B9D7FE /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C53254DF64800B9D7FE /* LocalDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +30,15 @@
 		60025C1D254C012A00B9D7FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60025C20254C012A00B9D7FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		60025C22254C012A00B9D7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60025C31254DE51C00B9D7FE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		60025C3A254DEAC100B9D7FE /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		60025C3D254DEE7600B9D7FE /* tourism.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tourism.entitlements; sourceTree = "<group>"; };
+		60025C41254DF12600B9D7FE /* PlaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceResponse.swift; sourceTree = "<group>"; };
+		60025C44254DF31700B9D7FE /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		60025C47254DF3FF00B9D7FE /* PlaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
+		60025C4B254DF50F00B9D7FE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceEntity.swift; sourceTree = "<group>"; };
+		60025C53254DF64800B9D7FE /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60025C2B254C077200B9D7FE /* RealmSwift in Frameworks */,
+				60025C2F254C083F00B9D7FE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,11 +73,14 @@
 		60025C18254C012900B9D7FE /* tourism */ = {
 			isa = PBXGroup;
 			children = (
+				60025C3D254DEE7600B9D7FE /* tourism.entitlements */,
+				60025C34254DE6B300B9D7FE /* Core */,
 				60025C19254C012900B9D7FE /* tourismApp.swift */,
 				60025C1B254C012900B9D7FE /* ContentView.swift */,
 				60025C1D254C012A00B9D7FE /* Assets.xcassets */,
 				60025C22254C012A00B9D7FE /* Info.plist */,
 				60025C1F254C012A00B9D7FE /* Preview Content */,
+				60025C31254DE51C00B9D7FE /* HomeView.swift */,
 			);
 			path = tourism;
 			sourceTree = "<group>";
@@ -67,6 +91,84 @@
 				60025C20254C012A00B9D7FE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		60025C34254DE6B300B9D7FE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				60025C38254DE6DA00B9D7FE /* Utils */,
+				60025C37254DE6D300B9D7FE /* Domain */,
+				60025C36254DE6C800B9D7FE /* Data */,
+				60025C35254DE6C100B9D7FE /* DI */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		60025C35254DE6C100B9D7FE /* DI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		60025C36254DE6C800B9D7FE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				60025C40254DEFB200B9D7FE /* Local */,
+				60025C3F254DEFAB00B9D7FE /* Remote */,
+				60025C47254DF3FF00B9D7FE /* PlaceRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		60025C37254DE6D300B9D7FE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				60025C39254DE71000B9D7FE /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		60025C38254DE6DA00B9D7FE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				60025C4A254DF4DD00B9D7FE /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		60025C39254DE71000B9D7FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60025C3A254DEAC100B9D7FE /* Place.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60025C3F254DEFAB00B9D7FE /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				60025C41254DF12600B9D7FE /* PlaceResponse.swift */,
+				60025C44254DF31700B9D7FE /* RemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		60025C40254DEFB200B9D7FE /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */,
+				60025C53254DF64800B9D7FE /* LocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		60025C4A254DF4DD00B9D7FE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				60025C4B254DF50F00B9D7FE /* CustomError.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +187,10 @@
 			dependencies = (
 			);
 			name = tourism;
+			packageProductDependencies = (
+				60025C2A254C077200B9D7FE /* RealmSwift */,
+				60025C2E254C083F00B9D7FE /* Alamofire */,
+			);
 			productName = tourism;
 			productReference = 60025C16254C012900B9D7FE /* tourism.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +218,10 @@
 				Base,
 			);
 			mainGroup = 60025C0D254C012900B9D7FE;
+			packageReferences = (
+				60025C29254C077200B9D7FE /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				60025C2D254C083F00B9D7FE /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 60025C17254C012900B9D7FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +248,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60025C54254DF64800B9D7FE /* LocalDataSource.swift in Sources */,
+				60025C32254DE51C00B9D7FE /* HomeView.swift in Sources */,
+				60025C4C254DF50F00B9D7FE /* CustomError.swift in Sources */,
+				60025C42254DF12600B9D7FE /* PlaceResponse.swift in Sources */,
+				60025C48254DF3FF00B9D7FE /* PlaceRepository.swift in Sources */,
 				60025C1C254C012900B9D7FE /* ContentView.swift in Sources */,
 				60025C1A254C012900B9D7FE /* tourismApp.swift in Sources */,
+				60025C4F254DF5FE00B9D7FE /* PlaceEntity.swift in Sources */,
+				60025C45254DF31700B9D7FE /* RemoteDataSource.swift in Sources */,
+				60025C3B254DEAC100B9D7FE /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = tourism/tourism.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"tourism/Preview Content\"";
 				DEVELOPMENT_TEAM = TVFQAT4MZP;
@@ -289,6 +408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = tourism/tourism.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"tourism/Preview Content\"";
 				DEVELOPMENT_TEAM = TVFQAT4MZP;
@@ -328,6 +448,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		60025C29254C077200B9D7FE /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.1.1;
+			};
+		};
+		60025C2D254C083F00B9D7FE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		60025C2A254C077200B9D7FE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60025C29254C077200B9D7FE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		60025C2E254C083F00B9D7FE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60025C2D254C083F00B9D7FE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60025C0E254C012900B9D7FE /* Project object */;
 }
