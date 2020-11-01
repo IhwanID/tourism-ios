@@ -7,38 +7,36 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 protocol RemoteDataSourceProtocol: class {
 
-  func getPlaces(result: @escaping (Result<[PlaceResponse], URLError>) -> Void)
+    func getPlaces() -> AnyPublisher<[PlaceResponse], Error>
 
 }
 
 final class RemoteDataSource: NSObject {
 
-  private override init() { }
+    private override init() { }
 
-  static let sharedInstance: RemoteDataSource =  RemoteDataSource()
+    static let sharedInstance: RemoteDataSource =  RemoteDataSource()
 
 }
 
 extension RemoteDataSource: RemoteDataSourceProtocol {
 
-  func getPlaces(
-    result: @escaping (Result<[PlaceResponse], URLError>) -> Void
-  ) {
-    guard let url = URL(string: "") else { return }
-
-    AF.request(url)
-      .validate()
-      .responseDecodable(of: PlacesResponse.self) { response in
-        switch response.result {
-        case .success(let value): result(.success(value.places))
-        case .failure: result(.failure(.invalidResponse))
-        }
+    func getPlaces() -> AnyPublisher<[PlaceResponse], Error> {
+        return Future<[PlaceResponse], Error> { completion in
+            if let url = URL(string: "https://tourism-api.dicoding.dev/list") {
+                AF.request(url)
+                    .validate()
+                    .responseDecodable(of: PlacesResponse.self) { response in
+                        switch response.result {
+                        case .success(let value): completion(.success(value.places))
+                        case .failure: completion(.failure(URLError.invalidResponse))
+                        }
+                    }
+            }
+        }.eraseToAnyPublisher()
     }
-
-  }
-
 }
-

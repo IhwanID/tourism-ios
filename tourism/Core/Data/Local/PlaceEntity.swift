@@ -19,7 +19,6 @@ class PlaceEntity: Object {
     @objc dynamic var like: Int = 0
     @objc dynamic var image: String = ""
 
-
     override static func primaryKey() -> String? {
         return "id"
     }

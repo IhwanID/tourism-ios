@@ -36,8 +36,6 @@ extension PlaceRepository: PlaceRepositoryProtocol {
   func getPlaces(
     result: @escaping (Result<[Place], Error>) -> Void
   ) {
-    locale.getPlaces { localeResponses in
-        
-    }
+    
   }
 }

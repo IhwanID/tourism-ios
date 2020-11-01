@@ -25,6 +25,10 @@
 		60C2E0CB254EC6AE0012D28B /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0CA254EC6AE0012D28B /* Injection.swift */; };
 		60C2E0CF254EC8920012D28B /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0CE254EC8920012D28B /* HomeInteractor.swift */; };
 		60C2E0D2254EC9180012D28B /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0D1254EC9180012D28B /* DetailInteractor.swift */; };
+		60C2E0DA254EF93A0012D28B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0D9254EF93A0012D28B /* HomePresenter.swift */; };
+		60C2E0DE254EF95C0012D28B /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0DD254EF95C0012D28B /* HomeRouter.swift */; };
+		60C2E0E4254EFE9D0012D28B /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */; };
+		60C2E0E7254EFEBD0012D28B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0E6254EFEBD0012D28B /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +40,6 @@
 		60025C22254C012A00B9D7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60025C31254DE51C00B9D7FE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		60025C3A254DEAC100B9D7FE /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		60025C3D254DEE7600B9D7FE /* tourism.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tourism.entitlements; sourceTree = "<group>"; };
 		60025C41254DF12600B9D7FE /* PlaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceResponse.swift; sourceTree = "<group>"; };
 		60025C44254DF31700B9D7FE /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		60025C47254DF3FF00B9D7FE /* PlaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
@@ -47,6 +50,10 @@
 		60C2E0CA254EC6AE0012D28B /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		60C2E0CE254EC8920012D28B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		60C2E0D1254EC9180012D28B /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		60C2E0D9254EF93A0012D28B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		60C2E0DD254EF95C0012D28B /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		60C2E0E6254EFEBD0012D28B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +88,13 @@
 		60025C18254C012900B9D7FE /* tourism */ = {
 			isa = PBXGroup;
 			children = (
-				60025C3D254DEE7600B9D7FE /* tourism.entitlements */,
+				60C2E0D4254EF4710012D28B /* Module */,
 				60025C34254DE6B300B9D7FE /* Core */,
 				60025C19254C012900B9D7FE /* tourismApp.swift */,
 				60025C1B254C012900B9D7FE /* ContentView.swift */,
 				60025C1D254C012A00B9D7FE /* Assets.xcassets */,
 				60025C22254C012A00B9D7FE /* Info.plist */,
 				60025C1F254C012A00B9D7FE /* Preview Content */,
-				60025C31254DE51C00B9D7FE /* HomeView.swift */,
 			);
 			path = tourism;
 			sourceTree = "<group>";
@@ -191,6 +197,74 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
+		60C2E0D4254EF4710012D28B /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				60C2E0E0254EFC090012D28B /* Detail */,
+				60C2E0D5254EF4810012D28B /* Home */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		60C2E0D5254EF4810012D28B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				60C2E0D8254EF5CA0012D28B /* View */,
+				60C2E0D7254EF5C00012D28B /* Router */,
+				60C2E0D6254EF5BA0012D28B /* Presenter */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		60C2E0D6254EF5BA0012D28B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				60C2E0D9254EF93A0012D28B /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		60C2E0D7254EF5C00012D28B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				60C2E0DD254EF95C0012D28B /* HomeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		60C2E0D8254EF5CA0012D28B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60025C31254DE51C00B9D7FE /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60C2E0E0254EFC090012D28B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				60C2E0E2254EFE030012D28B /* View */,
+				60C2E0E1254EFDF90012D28B /* Presenter */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		60C2E0E1254EFDF90012D28B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		60C2E0E2254EFE030012D28B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60C2E0E6254EFEBD0012D28B /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,9 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				60025C54254DF64800B9D7FE /* LocalDataSource.swift in Sources */,
+				60C2E0E7254EFEBD0012D28B /* DetailView.swift in Sources */,
 				60025C32254DE51C00B9D7FE /* HomeView.swift in Sources */,
 				60025C4C254DF50F00B9D7FE /* CustomError.swift in Sources */,
+				60C2E0DA254EF93A0012D28B /* HomePresenter.swift in Sources */,
 				60025C42254DF12600B9D7FE /* PlaceResponse.swift in Sources */,
+				60C2E0DE254EF95C0012D28B /* HomeRouter.swift in Sources */,
 				60025C48254DF3FF00B9D7FE /* PlaceRepository.swift in Sources */,
 				60025C1C254C012900B9D7FE /* ContentView.swift in Sources */,
 				60C2E0C8254E687E0012D28B /* PlaceMapper.swift in Sources */,
@@ -282,6 +359,7 @@
 				60C2E0D2254EC9180012D28B /* DetailInteractor.swift in Sources */,
 				60025C45254DF31700B9D7FE /* RemoteDataSource.swift in Sources */,
 				60025C3B254DEAC100B9D7FE /* Place.swift in Sources */,
+				60C2E0E4254EFE9D0012D28B /* DetailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
