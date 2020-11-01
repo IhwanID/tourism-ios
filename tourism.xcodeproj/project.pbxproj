@@ -21,6 +21,10 @@
 		60025C4C254DF50F00B9D7FE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C4B254DF50F00B9D7FE /* CustomError.swift */; };
 		60025C4F254DF5FE00B9D7FE /* PlaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */; };
 		60025C54254DF64800B9D7FE /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C53254DF64800B9D7FE /* LocalDataSource.swift */; };
+		60C2E0C8254E687E0012D28B /* PlaceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0C7254E687E0012D28B /* PlaceMapper.swift */; };
+		60C2E0CB254EC6AE0012D28B /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0CA254EC6AE0012D28B /* Injection.swift */; };
+		60C2E0CF254EC8920012D28B /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0CE254EC8920012D28B /* HomeInteractor.swift */; };
+		60C2E0D2254EC9180012D28B /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0D1254EC9180012D28B /* DetailInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		60025C4B254DF50F00B9D7FE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceEntity.swift; sourceTree = "<group>"; };
 		60025C53254DF64800B9D7FE /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
+		60C2E0C7254E687E0012D28B /* PlaceMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapper.swift; sourceTree = "<group>"; };
+		60C2E0CA254EC6AE0012D28B /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		60C2E0CE254EC8920012D28B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		60C2E0D1254EC9180012D28B /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 		60025C35254DE6C100B9D7FE /* DI */ = {
 			isa = PBXGroup;
 			children = (
+				60C2E0CA254EC6AE0012D28B /* Injection.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -124,6 +133,7 @@
 		60025C37254DE6D300B9D7FE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				60C2E0CD254EC87A0012D28B /* UseCase */,
 				60025C39254DE71000B9D7FE /* Model */,
 			);
 			path = Domain;
@@ -133,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				60025C4A254DF4DD00B9D7FE /* Extension */,
+				60C2E0C7254E687E0012D28B /* PlaceMapper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -169,6 +180,15 @@
 				60025C4B254DF50F00B9D7FE /* CustomError.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		60C2E0CD254EC87A0012D28B /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				60C2E0CE254EC8920012D28B /* HomeInteractor.swift */,
+				60C2E0D1254EC9180012D28B /* DetailInteractor.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +274,12 @@
 				60025C42254DF12600B9D7FE /* PlaceResponse.swift in Sources */,
 				60025C48254DF3FF00B9D7FE /* PlaceRepository.swift in Sources */,
 				60025C1C254C012900B9D7FE /* ContentView.swift in Sources */,
+				60C2E0C8254E687E0012D28B /* PlaceMapper.swift in Sources */,
+				60C2E0CF254EC8920012D28B /* HomeInteractor.swift in Sources */,
 				60025C1A254C012900B9D7FE /* tourismApp.swift in Sources */,
 				60025C4F254DF5FE00B9D7FE /* PlaceEntity.swift in Sources */,
+				60C2E0CB254EC6AE0012D28B /* Injection.swift in Sources */,
+				60C2E0D2254EC9180012D28B /* DetailInteractor.swift in Sources */,
 				60025C45254DF31700B9D7FE /* RemoteDataSource.swift in Sources */,
 				60025C3B254DEAC100B9D7FE /* Place.swift in Sources */,
 			);
