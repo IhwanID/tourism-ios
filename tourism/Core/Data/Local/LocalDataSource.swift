@@ -7,14 +7,12 @@
 
 import Foundation
 import RealmSwift
+import Combine
 
 protocol LocalDataSourceProtocol: class {
 
-  func getPlaces(result: @escaping (Result<[PlaceEntity], DatabaseError>) -> Void)
-  func addPlaces(
-    from categories: [PlaceEntity],
-    result: @escaping (Result<Bool, DatabaseError>) -> Void
-  )
+  func getPlaces() -> AnyPublisher<[PlaceEntity], Error>
+  func addPlaces(from places: [PlaceEntity]) -> AnyPublisher<Bool, Error>
 
 }
 
@@ -34,38 +32,39 @@ final class LocalDataSource: NSObject {
 
 extension LocalDataSource: LocalDataSourceProtocol {
 
-  func getPlaces(
-    result: @escaping (Result<[PlaceEntity], DatabaseError>) -> Void
-  ) {
-    if let realm = realm {
-      let categories: Results<PlaceEntity> = {
+  func getPlaces() -> AnyPublisher<[PlaceEntity], Error> {
+  return Future<[PlaceEntity], Error> { completion in
+    if let realm = self.realm {
+      let places: Results<PlaceEntity> = {
         realm.objects(PlaceEntity.self)
-          .sorted(byKeyPath: "title", ascending: true)
+          .sorted(byKeyPath: "name", ascending: true)
       }()
-      result(.success(categories.toArray(ofType: PlaceEntity.self)))
+      completion(.success(places.toArray(ofType: PlaceEntity.self)))
     } else {
-      result(.failure(.invalidInstance))
+      completion(.failure(DatabaseError.invalidInstance))
     }
-  }
+  }.eraseToAnyPublisher()
+}
 
   func addPlaces(
-    from categories: [PlaceEntity],
-    result: @escaping (Result<Bool, DatabaseError>) -> Void
-  ) {
-    if let realm = realm {
-      do {
-        try realm.write {
-          for category in categories {
-            realm.add(category, update: .all)
+    from places: [PlaceEntity]
+  ) -> AnyPublisher<Bool, Error> {
+    return Future<Bool, Error> { completion in
+      if let realm = self.realm {
+        do {
+          try realm.write {
+            for place in places {
+              realm.add(place, update: .all)
+            }
+            completion(.success(true))
           }
-          result(.success(true))
+        } catch {
+          completion(.failure(DatabaseError.requestFailed))
         }
-      } catch {
-        result(.failure(.requestFailed))
+      } else {
+        completion(.failure(DatabaseError.invalidInstance))
       }
-    } else {
-      result(.failure(.invalidInstance))
-    }
+    }.eraseToAnyPublisher()
   }
 
 }

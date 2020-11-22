@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol PlaceRepositoryProtocol {
 
-  func getPlaces(result: @escaping (Result<[Place], Error>) -> Void)
+  func getPlaces() -> AnyPublisher<[Place], Error>
 
 }
 
@@ -33,9 +34,25 @@ final class PlaceRepository: NSObject {
 
 extension PlaceRepository: PlaceRepositoryProtocol {
 
-  func getPlaces(
-    result: @escaping (Result<[Place], Error>) -> Void
-  ) {
-    
+  func getPlaces() -> AnyPublisher<[Place], Error> {
+
+    return self.locale.getPlaces()
+        .flatMap { result -> AnyPublisher<[Place], Error> in
+        if result.isEmpty {
+          return self.remote.getPlaces()
+            .map { PlaceMapper.mapPlaceResponsesToEntities(input: $0) }
+            .flatMap { self.locale.addPlaces(from: $0) }
+            .filter { $0 }
+            .flatMap { _ in self.locale.getPlaces()
+              .map { PlaceMapper.mapPlaceEntitiesToDomains(input: $0) }
+            }
+            .eraseToAnyPublisher()
+        } else {
+          return self.locale.getPlaces()
+            .map { PlaceMapper.mapPlaceEntitiesToDomains(input: $0) }
+            .eraseToAnyPublisher()
+        }
+      }.eraseToAnyPublisher()
+
   }
 }

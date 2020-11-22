@@ -12,7 +12,9 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            HomeView(presenter: homePresenter)
+            NavigationView {
+                HomeView(presenter: homePresenter)
+            }
               .tabItem {
                  Image(systemName: "house.fill")
                  Text("Home")

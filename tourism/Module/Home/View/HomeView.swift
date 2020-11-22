@@ -12,31 +12,32 @@ struct HomeView: View {
 
     var body: some View {
         ZStack {
-              if presenter.loadingState {
+            if presenter.loadingState {
                 VStack {
-                  Text("Loading...")
+                    Text("Loading...")
 
                 }
-              } else {
+            } else {
                 ScrollView(.vertical, showsIndicators: false) {
-                  ForEach(
-                    self.presenter.places,
-                    id: \.id
-                  ) { category in
-                    ZStack {
-                      self.presenter.linkBuilder(for: category) {
-                      }.buttonStyle(PlainButtonStyle())
-                    }.padding(8)
-                  }
+                    ForEach(
+                        self.presenter.places,
+                        id: \.id
+                    ) { place in
+                        VStack {
+                            self.presenter.linkBuilder(for: place) {
+                                PlaceRow(place: place)
+                                    .padding(.all, 8)
+                                    .frame(maxWidth: 600, maxHeight: 300)
+                            }
+                        }.padding(8)
+                    }
                 }
-              }
-            }.onAppear {
-              if self.presenter.places.count == 0 {
-                self.presenter.getCategories()
-              }
-            }.navigationBarTitle(
-              Text("Meals Apps"),
-              displayMode: .automatic
-            )
-          }
+            }
+        }.onAppear {
+            if self.presenter.places.count == 0 {
+                self.presenter.getPlaces()
+            }
+        }.navigationTitle("Place")
+        
     }
+}
