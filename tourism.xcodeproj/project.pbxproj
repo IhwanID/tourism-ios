@@ -32,6 +32,11 @@
 		60C2E0DE254EF95C0012D28B /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0DD254EF95C0012D28B /* HomeRouter.swift */; };
 		60C2E0E4254EFE9D0012D28B /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */; };
 		60C2E0E7254EFEBD0012D28B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0E6254EFEBD0012D28B /* DetailView.swift */; };
+		60F5FEBB256D46BF009C946E /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEBA256D46BF009C946E /* FavoriteRouter.swift */; };
+		60F5FEBF256D470A009C946E /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEBE256D470A009C946E /* FavoriteView.swift */; };
+		60F5FEC2256D4720009C946E /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEC1256D4720009C946E /* FavoritePresenter.swift */; };
+		60F5FEC5256D478B009C946E /* FavoriteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEC4256D478B009C946E /* FavoriteRow.swift */; };
+		60F5FEC8256D4DCA009C946E /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEC7256D4DCA009C946E /* FavoriteInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +65,11 @@
 		60C2E0DD254EF95C0012D28B /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		60C2E0E6254EFEBD0012D28B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		60F5FEBA256D46BF009C946E /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		60F5FEBE256D470A009C946E /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		60F5FEC1256D4720009C946E /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
+		60F5FEC4256D478B009C946E /* FavoriteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRow.swift; sourceTree = "<group>"; };
+		60F5FEC7256D4DCA009C946E /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +210,7 @@
 			children = (
 				60C2E0CE254EC8920012D28B /* HomeInteractor.swift */,
 				60C2E0D1254EC9180012D28B /* DetailInteractor.swift */,
+				60F5FEC7256D4DCA009C946E /* FavoriteInteractor.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -207,6 +218,7 @@
 		60C2E0D4254EF4710012D28B /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				60F5FEB6256D4579009C946E /* Favorite */,
 				60C2E0E0254EFC090012D28B /* Detail */,
 				60C2E0D5254EF4810012D28B /* Home */,
 			);
@@ -272,6 +284,41 @@
 				60C2E0E6254EFEBD0012D28B /* DetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		60F5FEB6256D4579009C946E /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				60F5FEB9256D45E5009C946E /* Router */,
+				60F5FEB8256D45DF009C946E /* View */,
+				60F5FEB7256D45D8009C946E /* Presenter */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		60F5FEB7256D45D8009C946E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				60F5FEC1256D4720009C946E /* FavoritePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		60F5FEB8256D45DF009C946E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60F5FEBE256D470A009C946E /* FavoriteView.swift */,
+				60F5FEC4256D478B009C946E /* FavoriteRow.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60F5FEB9256D45E5009C946E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				60F5FEBA256D46BF009C946E /* FavoriteRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,14 +398,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F5FEC8256D4DCA009C946E /* FavoriteInteractor.swift in Sources */,
 				60025C54254DF64800B9D7FE /* LocalDataSource.swift in Sources */,
 				60C2E0E7254EFEBD0012D28B /* DetailView.swift in Sources */,
 				60025C32254DE51C00B9D7FE /* HomeView.swift in Sources */,
 				60025C4C254DF50F00B9D7FE /* CustomError.swift in Sources */,
+				60F5FEBB256D46BF009C946E /* FavoriteRouter.swift in Sources */,
 				60C2E0DA254EF93A0012D28B /* HomePresenter.swift in Sources */,
 				60025C42254DF12600B9D7FE /* PlaceResponse.swift in Sources */,
 				6087BF2C256A802200684CB0 /* PlaceRow.swift in Sources */,
 				60C2E0DE254EF95C0012D28B /* HomeRouter.swift in Sources */,
+				60F5FEC5256D478B009C946E /* FavoriteRow.swift in Sources */,
 				60025C48254DF3FF00B9D7FE /* PlaceRepository.swift in Sources */,
 				6087BF32256A838F00684CB0 /* RemoteImage.swift in Sources */,
 				60025C1C254C012900B9D7FE /* ContentView.swift in Sources */,
@@ -368,10 +418,12 @@
 				60025C4F254DF5FE00B9D7FE /* PlaceEntity.swift in Sources */,
 				60C2E0CB254EC6AE0012D28B /* Injection.swift in Sources */,
 				60C2E0D2254EC9180012D28B /* DetailInteractor.swift in Sources */,
+				60F5FEC2256D4720009C946E /* FavoritePresenter.swift in Sources */,
 				60025C45254DF31700B9D7FE /* RemoteDataSource.swift in Sources */,
 				6087BF2F256A80B500684CB0 /* ProgressView.swift in Sources */,
 				60025C3B254DEAC100B9D7FE /* Place.swift in Sources */,
 				60C2E0E4254EFE9D0012D28B /* DetailPresenter.swift in Sources */,
+				60F5FEBF256D470A009C946E /* FavoriteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

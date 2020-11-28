@@ -17,5 +17,5 @@ struct Place: Equatable, Identifiable {
     let latitude: Double
     let like: Int
     let image: String
-
+    var favorite: Bool = false
 }

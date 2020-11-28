@@ -9,35 +9,37 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var presenter: HomePresenter
-
+    @Namespace var namespace
     var body: some View {
         ZStack {
             if presenter.loadingState {
                 VStack {
                     Text("Loading...")
-
                 }
             } else {
-                ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(
-                        self.presenter.places,
-                        id: \.id
-                    ) { place in
-                        VStack {
-                            self.presenter.linkBuilder(for: place) {
-                                PlaceRow(place: place)
-                                    .padding(.all, 8)
-                                    .frame(maxWidth: 600, maxHeight: 300)
+                ScrollView(.vertical, showsIndicators: false){
+                    LazyVGrid(
+                        columns: [GridItem(.adaptive(minimum: 159), spacing: 16)],
+                        spacing: 16) {
+                        ForEach(
+                            self.presenter.places,
+                            id: \.id
+                        ){ place in
+                            VStack {
+                                self.presenter.linkBuilder(for: place) {
+                                    PlaceRow(place: place)
+                                }
                             }
-                        }.padding(8)
-                    }
-                }
+                        }}
+                }.animation(.spring(response: 0.4, dampingFraction: 0.8))
+                .padding(.all, 20)
+
             }
         }.onAppear {
             if self.presenter.places.count == 0 {
                 self.presenter.getPlaces()
             }
-        }.navigationTitle("Place")
+        }.navigationTitle("Home")
         
     }
 }

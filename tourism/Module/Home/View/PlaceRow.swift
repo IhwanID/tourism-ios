@@ -11,33 +11,26 @@ struct PlaceRow: View {
     var place: Place
 
     var body: some View {
-        VStack(alignment: .leading) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text(place.name)
-                    .font(.title3).bold()
-                    .foregroundColor(.white)
-                    .shadow(color: .black, radius: 5)
-                Text("\(place.description.substring(to: 200)) . . .")
-                    .font(.subheadline)
-                    .foregroundColor(.white)
-                    .opacity(0.8)
-                    .shadow(color: .black, radius: 5)
-            }
+        VStack(alignment: .center, spacing: 4.0) {
             Spacer()
-            Text(place.address)
-                .font(Font.subheadline.smallCaps())
-                .foregroundColor(.black)
-
+            Text(place.name)
+                .font(.title3).bold()
+                .foregroundColor(.white)
+                .shadow(color: .black, radius: 5)
         }
-        .padding(.top, 20)
-        .padding(.all, 20)
+        .padding(16)
+        .frame(minWidth: 0,
+               maxWidth: .infinity,
+               minHeight: 160,
+               maxHeight: .infinity,
+               alignment: .topLeading
+        )
         .background(
             RemoteImage(url: place.image)
-                .aspectRatio(contentMode: .fill).opacity(0.8)
+                .opacity(0.8).aspectRatio(contentMode: .fill)
         )
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
-        .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 10)
+        .shadow(color: Color(.white).opacity(0.3), radius: 20, x: 0, y: 10)
     }
 }
 
