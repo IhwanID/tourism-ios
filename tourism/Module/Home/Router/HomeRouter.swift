@@ -10,10 +10,10 @@ import SwiftUI
 
 class HomeRouter {
 
-  func makeDetailView(for place: Place) -> some View {
-    let detailUseCase = Injection.init().provideDetail(place: place)
-    let presenter = DetailPresenter(detailUseCase: detailUseCase)
-    return DetailView(presenter: presenter)
-  }
+    func makeDetailView(for place: Place) -> some View {
+        let detailUseCase = Injection.init().provideDetail(place: place)
+        let presenter = DetailPresenter(detailUseCase: detailUseCase)
+        return DetailView(presenter: presenter)
+    }
 
 }

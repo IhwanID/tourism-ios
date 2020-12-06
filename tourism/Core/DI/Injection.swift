@@ -10,28 +10,28 @@ import RealmSwift
 
 final class Injection: NSObject {
 
-  private func provideRepository() -> PlaceRepositoryProtocol {
-    let realm = try? Realm()
+    private func provideRepository() -> PlaceRepositoryProtocol {
+        let realm = try? Realm()
 
-    let locale: LocalDataSource = LocalDataSource.sharedInstance(realm)
-    let remote: RemoteDataSource = RemoteDataSource.sharedInstance
+        let locale: LocalDataSource = LocalDataSource.sharedInstance(realm)
+        let remote: RemoteDataSource = RemoteDataSource.sharedInstance
 
-    return PlaceRepository.sharedInstance(locale, remote)
-  }
+        return PlaceRepository.sharedInstance(locale, remote)
+    }
 
-  func provideHome() -> HomeUseCase {
-    let repository = provideRepository()
-    return HomeInteractor(repository: repository)
-  }
-  
-  func provideDetail(place: Place) -> DetailUseCase {
-    let repository = provideRepository()
-    return DetailInteractor(repository: repository, place: place)
-  }
+    func provideHome() -> HomeUseCase {
+        let repository = provideRepository()
+        return HomeInteractor(repository: repository)
+    }
+
+    func provideDetail(place: Place) -> DetailUseCase {
+        let repository = provideRepository()
+        return DetailInteractor(repository: repository, place: place)
+    }
 
     func provideFavorite() -> FavoriteUseCase {
-      let repository = provideRepository()
-      return FavoriteInteractor(repository: repository)
+        let repository = provideRepository()
+        return FavoriteInteractor(repository: repository)
     }
 
 }

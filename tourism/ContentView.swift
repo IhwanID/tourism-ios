@@ -27,8 +27,9 @@ struct ContentView: View {
                  Image(systemName: "heart.fill")
                  Text("Favorite")
               }
-
-            Text("Profile Page")
+            NavigationView {
+            ProfileView()
+            }
               .tabItem {
                  Image(systemName: "person.fill")
                  Text("Profile")

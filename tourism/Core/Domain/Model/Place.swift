@@ -11,11 +11,16 @@ struct Place: Equatable, Identifiable {
 
     let id: Int
     let name: String
-    let description: String
+    let desc: String
     let address: String
     let longitude: Double
     let latitude: Double
     let like: Int
     let image: String
     var favorite: Bool = false
+    
+    enum CodingKeys: String, CodingKey{
+        case desc = "description"
+
+    }
 }

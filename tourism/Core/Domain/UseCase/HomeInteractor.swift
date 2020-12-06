@@ -9,20 +9,20 @@ import Foundation
 import Combine
 
 protocol HomeUseCase {
-
-  func getPlaces() -> AnyPublisher<[Place], Error>
+    
+    func getPlaces() -> AnyPublisher<[Place], Error>
 }
 
 class HomeInteractor: HomeUseCase {
-
-  private let repository: PlaceRepositoryProtocol
-
-  required init(repository: PlaceRepositoryProtocol) {
-    self.repository = repository
-  }
-
-  func getPlaces() -> AnyPublisher<[Place], Error> {
-    return repository.getPlaces()
-  }
-
+    
+    private let repository: PlaceRepositoryProtocol
+    
+    required init(repository: PlaceRepositoryProtocol) {
+        self.repository = repository
+    }
+    
+    func getPlaces() -> AnyPublisher<[Place], Error> {
+        return repository.getPlaces()
+    }
+    
 }

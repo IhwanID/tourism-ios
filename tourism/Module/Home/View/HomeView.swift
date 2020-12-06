@@ -14,7 +14,7 @@ struct HomeView: View {
         ZStack {
             if presenter.loadingState {
                 VStack {
-                    Text("Loading...")
+                    ProgressView()
                 }
             } else {
                 ScrollView(.vertical, showsIndicators: false){
@@ -32,7 +32,7 @@ struct HomeView: View {
                             }
                         }}
                 }.animation(.spring(response: 0.4, dampingFraction: 0.8))
-                .padding(.all, 20)
+                .padding(.horizontal, 20)
 
             }
         }.onAppear {

@@ -60,16 +60,16 @@ extension PlaceRepository: PlaceRepositoryProtocol {
     }
 
     func getFavoritePlaces() -> AnyPublisher<[Place], Error> {
-      return self.locale.getFavoritePlaces()
-        .map { PlaceMapper.mapPlaceEntitiesToDomains(input: $0) }
-        .eraseToAnyPublisher()
+        return self.locale.getFavoritePlaces()
+            .map { PlaceMapper.mapPlaceEntitiesToDomains(input: $0) }
+            .eraseToAnyPublisher()
     }
 
     func updateFavoritPlaces(
-      by id: Int
+        by id: Int
     ) -> AnyPublisher<Place, Error> {
         return self.locale.updateFavoritePlace(by: id)
-        .map { PlaceMapper.mapDetailPlaceEntityToDomain(input: $0) }
-        .eraseToAnyPublisher()
+            .map { PlaceMapper.mapDetailPlaceEntityToDomain(input: $0) }
+            .eraseToAnyPublisher()
     }
 }

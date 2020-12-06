@@ -18,6 +18,9 @@ final class PlaceMapper {
             place.name = result.name ?? "Unknow"
             place.image = result.image ?? "Unknow"
             place.desc = result.description ?? "Unknow"
+            place.address = result.address ?? "Unknow"
+            place.latitude = result.latitude ?? 0
+            place.longitude = result.longitude ?? 0
             return place
         }
     }
@@ -26,7 +29,7 @@ final class PlaceMapper {
         input placeEntities: [PlaceEntity]
     ) -> [Place] {
         return placeEntities.map { result in
-            return Place(id: result.id, name: result.name, description: result.desc, address: result.address, longitude: result.longitude, latitude: result.latitude, like: result.like, image: result.image
+            return Place(id: result.id, name: result.name, desc: result.desc, address: result.address, longitude: result.longitude, latitude: result.latitude, like: result.like, image: result.image, favorite: result.favorite
             )
         }
     }
@@ -36,7 +39,7 @@ final class PlaceMapper {
     ) -> [Place] {
 
         return placeResponses.map { result in
-            return Place(id: result.id ?? 0, name: result.name ?? "", description: result.description ?? "", address: result.address ?? "", longitude: result.longitude ?? 0.0, latitude: result.latitude ?? 0.0, like: result.like ?? 0, image: result.image ?? ""
+            return Place(id: result.id ?? 0, name: result.name ?? "", desc: result.description ?? "", address: result.address ?? "", longitude: result.longitude ?? 0.0, latitude: result.latitude ?? 0.0, like: result.like ?? 0, image: result.image ?? ""
             )
         }
     }
@@ -45,7 +48,7 @@ final class PlaceMapper {
         input placeEntity: PlaceEntity
     ) -> Place {
 
-        return Place(id: placeEntity.id, name: placeEntity.name, description: placeEntity.description, address: placeEntity.address, longitude: placeEntity.longitude , latitude: placeEntity.latitude , like: placeEntity.like, image: placeEntity.image
+        return Place(id: placeEntity.id, name: placeEntity.name, desc: placeEntity.desc, address: placeEntity.address, longitude: placeEntity.longitude , latitude: placeEntity.latitude , like: placeEntity.like, image: placeEntity.image, favorite: placeEntity.favorite
         )
     }
 

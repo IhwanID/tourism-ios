@@ -10,61 +10,29 @@ import SwiftUI
 
 struct FavoriteRow: View {
 
-  var place: Place
+    var place: Place
 
-  var body: some View {
-    VStack {
-      HStack(alignment: .top) {
-        imageCategory
-        content
-        Spacer()
-      }
-      .padding(.horizontal, 16)
-      .padding(.vertical, 8)
+    var body: some View {
+        VStack(alignment: .center)  {
+            Text(place.name)
+                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                .lineLimit(3)
+                .foregroundColor(.white)
 
-      Divider()
-        .padding(.leading)
-    }
-  }
-
-}
-
-extension FavoriteRow {
-
-  var imageCategory: some View {
-    RemoteImage(url: place.image)
-        .aspectRatio(contentMode: .fit)
+        }.padding(.top, 20)
+        .padding(.all, 20)
         .frame(minWidth: 0,
                maxWidth: .infinity,
                minHeight: 160,
                maxHeight: .infinity,
                alignment: .topLeading)
-  }
-
-  var content: some View {
-    VStack(alignment: .leading, spacing: 10) {
-      Text(place.name)
-        .font(.system(size: 20, weight: .semibold, design: .rounded))
-        .lineLimit(3)
-
-        Text(place.address)
-        .font(.system(size: 16))
-        .lineLimit(2)
-
-        if !place.address.isEmpty {
-            Text("From \(place.address)")
-          .font(.system(size: 14))
-          .lineLimit(2)
-      }
-
-    }.padding(
-      EdgeInsets(
-        top: 0,
-        leading: 16,
-        bottom: 16,
-        trailing: 16
-      )
-    )
-  }
+        .background(
+            RemoteImage(url: place.image).opacity(0.8)                .aspectRatio(contentMode: .fill)
+        )
+        
+        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+        .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 10)
+    }
 
 }

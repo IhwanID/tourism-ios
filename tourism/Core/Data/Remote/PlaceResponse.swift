@@ -8,13 +8,13 @@
 import Foundation
 
 struct PlacesResponse: Decodable {
-
-  let places: [PlaceResponse]
-
+    
+    let places: [PlaceResponse]
+    
 }
 
 struct PlaceResponse: Decodable {
-
+    
     let id: Int?
     let name: String?
     let description: String?
@@ -23,5 +23,4 @@ struct PlaceResponse: Decodable {
     let latitude: Double?
     let like: Int?
     let image: String?
-
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct DetailView: View {
     @ObservedObject var presenter: DetailPresenter
@@ -13,59 +14,37 @@ struct DetailView: View {
     var body: some View {
         ZStack {
             if presenter.loadingState {
-                loadingIndicator
+                ProgressView()
             } else {
                 ScrollView(.vertical) {
                     VStack {
                         RemoteImage(url: presenter.place.image)
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .frame(minWidth: 0,
                                    maxWidth: .infinity,
-                                   minHeight: 160,
+                                   minHeight: 120,
                                    maxHeight: .infinity,
                                    alignment: .topLeading)
-                        spacer
-                        content
-                        spacer
-                        Button(action: {
-                            self.presenter.updateFavoritePlace()
-                        }, label: {
-                            Text("Add to Favorites")
-                        })
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Address")
+                                .font(.headline)
+                                .padding([.top, .bottom])
+                            Text(self.presenter.place.address)
+                                .font(.system(size: 15))
+
+                            Text("Description")
+                                .font(.headline)
+                                .padding([.top, .bottom])
+                            Text(self.presenter.place.desc)
+                                .font(.system(size: 15))
+                        }
+
                     }.padding()
                 }
             }
         }.navigationBarTitle(Text(self.presenter.place.name), displayMode: .large)
-    }
-}
-
-extension DetailView {
-    var spacer: some View {
-        Spacer()
-    }
-
-    var loadingIndicator: some View {
-        VStack {
-            Text("Loading...")
-        }
-    }
-
-
-    var description: some View {
-        Text(self.presenter.place.description)
-            .font(.system(size: 15))
-    }
-
-    func headerTitle(_ title: String) -> some View {
-        return Text(title)
-            .font(.headline)
-    }
-
-    var content: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            headerTitle("Description")
-                .padding([.top, .bottom])
-            description
-        }
+        .navigationBarItems(trailing: Image(systemName: presenter.place.favorite ? "heart.fill" : "heart")
+                                .font(.system(size: 28))
+                                .foregroundColor(.orange).onTapGesture { self.presenter.updateFavoritePlace() })
     }
 }
