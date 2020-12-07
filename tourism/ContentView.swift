@@ -16,24 +16,24 @@ struct ContentView: View {
             NavigationView {
                 HomeView(presenter: homePresenter)
             }
-              .tabItem {
-                 Image(systemName: "house.fill")
-                 Text("Home")
-               }
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
+            }
             NavigationView {
                 FavoriteView(presenter: favoritePresenter)
             }
-              .tabItem {
-                 Image(systemName: "heart.fill")
-                 Text("Favorite")
-              }
-            NavigationView {
-            ProfileView()
+            .tabItem {
+                Image(systemName: "heart.fill")
+                Text("Favorite")
             }
-              .tabItem {
-                 Image(systemName: "person.fill")
-                 Text("Profile")
-              }
+            NavigationView {
+                ProfileView()
+            }
+            .tabItem {
+                Image(systemName: "person.fill")
+                Text("Profile")
+            }
 
         }
         

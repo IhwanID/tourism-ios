@@ -10,6 +10,15 @@ import MapKit
 
 struct DetailView: View {
     @ObservedObject var presenter: DetailPresenter
+    @State var coordinateRegion: MKCoordinateRegion = {
+        var region = MKCoordinateRegion()
+        region.center.latitude = -0.789275
+        region.center.longitude = 113.921327
+        region.span.latitudeDelta = 50
+        region.span.longitudeDelta = 50
+        return region
+    }()
+    
 
     var body: some View {
         ZStack {
@@ -19,12 +28,13 @@ struct DetailView: View {
                 ScrollView(.vertical) {
                     VStack {
                         RemoteImage(url: presenter.place.image)
-                            .aspectRatio(contentMode: .fill)
                             .frame(minWidth: 0,
                                    maxWidth: .infinity,
                                    minHeight: 120,
                                    maxHeight: .infinity,
                                    alignment: .topLeading)
+                            .aspectRatio(contentMode: .fill)
+
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Address")
                                 .font(.headline)
@@ -37,8 +47,11 @@ struct DetailView: View {
                                 .padding([.top, .bottom])
                             Text(self.presenter.place.desc)
                                 .font(.system(size: 15))
+                                .lineLimit(nil)
                         }
-
+                        Map(coordinateRegion: $coordinateRegion, annotationItems: [ AnnotationItem(coordinate: CLLocationCoordinate2D(latitude: self.presenter.place.latitude, longitude: self.presenter.place.longitude))]){item in
+                            MapPin(coordinate: item.coordinate)
+                        }
                     }.padding()
                 }
             }

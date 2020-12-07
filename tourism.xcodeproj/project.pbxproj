@@ -22,7 +22,6 @@
 		60025C4F254DF5FE00B9D7FE /* PlaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */; };
 		60025C54254DF64800B9D7FE /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C53254DF64800B9D7FE /* LocalDataSource.swift */; };
 		6087BF2C256A802200684CB0 /* PlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6087BF2B256A802200684CB0 /* PlaceRow.swift */; };
-		6087BF2F256A80B500684CB0 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6087BF2E256A80B500684CB0 /* ProgressView.swift */; };
 		6087BF32256A838F00684CB0 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6087BF31256A838F00684CB0 /* RemoteImage.swift */; };
 		60C2E0C8254E687E0012D28B /* PlaceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0C7254E687E0012D28B /* PlaceMapper.swift */; };
 		60C2E0CB254EC6AE0012D28B /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0CA254EC6AE0012D28B /* Injection.swift */; };
@@ -33,6 +32,7 @@
 		60C2E0E4254EFE9D0012D28B /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */; };
 		60C2E0E7254EFEBD0012D28B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0E6254EFEBD0012D28B /* DetailView.swift */; };
 		60E6FF59257CC0060058A9D1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6FF58257CC0060058A9D1 /* ProfileView.swift */; };
+		60E6FF61257E8E560058A9D1 /* AnnotationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6FF60257E8E560058A9D1 /* AnnotationItem.swift */; };
 		60F5FEBB256D46BF009C946E /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEBA256D46BF009C946E /* FavoriteRouter.swift */; };
 		60F5FEBF256D470A009C946E /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEBE256D470A009C946E /* FavoriteView.swift */; };
 		60F5FEC2256D4720009C946E /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEC1256D4720009C946E /* FavoritePresenter.swift */; };
@@ -56,7 +56,6 @@
 		60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceEntity.swift; sourceTree = "<group>"; };
 		60025C53254DF64800B9D7FE /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		6087BF2B256A802200684CB0 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
-		6087BF2E256A80B500684CB0 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		6087BF31256A838F00684CB0 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		60C2E0C7254E687E0012D28B /* PlaceMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapper.swift; sourceTree = "<group>"; };
 		60C2E0CA254EC6AE0012D28B /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		60C2E0E6254EFEBD0012D28B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		60E6FF58257CC0060058A9D1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		60E6FF60257E8E560058A9D1 /* AnnotationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationItem.swift; sourceTree = "<group>"; };
 		60F5FEBA256D46BF009C946E /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		60F5FEBE256D470A009C946E /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		60F5FEC1256D4720009C946E /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
@@ -169,6 +169,7 @@
 				60025C4A254DF4DD00B9D7FE /* Extension */,
 				60C2E0C7254E687E0012D28B /* PlaceMapper.swift */,
 				6087BF31256A838F00684CB0 /* RemoteImage.swift */,
+				60E6FF60257E8E560058A9D1 /* AnnotationItem.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -259,7 +260,6 @@
 			children = (
 				60025C31254DE51C00B9D7FE /* HomeView.swift */,
 				6087BF2B256A802200684CB0 /* PlaceRow.swift */,
-				6087BF2E256A80B500684CB0 /* ProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -422,6 +422,7 @@
 				60C2E0DE254EF95C0012D28B /* HomeRouter.swift in Sources */,
 				60F5FEC5256D478B009C946E /* FavoriteRow.swift in Sources */,
 				60025C48254DF3FF00B9D7FE /* PlaceRepository.swift in Sources */,
+				60E6FF61257E8E560058A9D1 /* AnnotationItem.swift in Sources */,
 				6087BF32256A838F00684CB0 /* RemoteImage.swift in Sources */,
 				60025C1C254C012900B9D7FE /* ContentView.swift in Sources */,
 				60C2E0C8254E687E0012D28B /* PlaceMapper.swift in Sources */,
@@ -432,7 +433,6 @@
 				60C2E0D2254EC9180012D28B /* DetailInteractor.swift in Sources */,
 				60F5FEC2256D4720009C946E /* FavoritePresenter.swift in Sources */,
 				60025C45254DF31700B9D7FE /* RemoteDataSource.swift in Sources */,
-				6087BF2F256A80B500684CB0 /* ProgressView.swift in Sources */,
 				60025C3B254DEAC100B9D7FE /* Place.swift in Sources */,
 				60C2E0E4254EFE9D0012D28B /* DetailPresenter.swift in Sources */,
 				60F5FEBF256D470A009C946E /* FavoriteView.swift in Sources */,

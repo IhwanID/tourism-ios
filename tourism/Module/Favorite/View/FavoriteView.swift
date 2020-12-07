@@ -16,13 +16,36 @@ struct FavoriteView: View {
         ZStack {
 
             if presenter.isLoading {
-                loadingIndicator
+                VStack{
+                    ProgressView()
+                }
             } else if presenter.isError {
-                errorIndicator
+                VStack{
+                    Text("Error!")
+                }
             } else if presenter.places.count == 0 {
-                emptyFavorites
+                VStack{
+                    Text("No Favorite Place")
+                }
             } else {
-                content
+                ScrollView(
+                    .vertical,
+                    showsIndicators: false
+                ) {
+                    VStack(spacing: 30){
+                        ForEach(
+                            self.presenter.places,
+                            id: \.id
+                        ) { place in
+                            self.presenter.linkBuilder(for: place) {
+                                FavoriteRow(place: place).frame(maxWidth: 600, maxHeight: 300)
+                            }
+                        }
+                    }
+                    .animation(.spring(response: 0.4, dampingFraction: 0.8))
+                    .padding(20)
+
+                }
             }
         }.onAppear {
             self.presenter.getFavoritePlaces()
@@ -32,42 +55,4 @@ struct FavoriteView: View {
         )
     }
 
-}
-
-extension FavoriteView {
-    var loadingIndicator: some View {
-        VStack {
-            Text("Loading...")
-
-        }
-    }
-
-    var errorIndicator: some View {
-        EmptyView()
-    }
-
-    var emptyFavorites: some View {
-        EmptyView()
-    }
-
-    var content: some View {
-        ScrollView(
-            .vertical,
-            showsIndicators: false
-        ) {
-            VStack(spacing: 30){
-                ForEach(
-                    self.presenter.places,
-                    id: \.id
-                ) { place in
-                    self.presenter.linkBuilder(for: place) {
-                        FavoriteRow(place: place).frame(maxWidth: 600, maxHeight: 300)
-                    }
-                }
-            }
-            .animation(.spring(response: 0.4, dampingFraction: 0.8))
-            .padding(20)
-
-        }
-    }
 }

@@ -24,6 +24,7 @@ class DetailPresenter: ObservableObject {
     }
 
     func updateFavoritePlace() {
+        loadingState = true
         detailUseCase.updateFavoritePlace()
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
