@@ -39,4 +39,6 @@ class DetailPresenter: ObservableObject {
             })
             .store(in: &cancellables)
     }
+
+    
 }
