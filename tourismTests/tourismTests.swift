@@ -52,5 +52,27 @@ class tourismTests: XCTestCase {
           }
 
     }
+    
+    func testUnFavoritePlace(){
+        let favoriteUseCase = Injection.init().provideFavorite()
+        let favoritePresenter = FavoritePresenter(favoriteUseCase: favoriteUseCase)
+        let detailUseCase = Injection.init().provideDetail(place: Place(id: 1, name: "", desc: "", address: "", longitude: 0, latitude: 0, like: 0, image: ""))
+        let detailPresenter = DetailPresenter(detailUseCase: detailUseCase)
+        let favoriteExpectaion = expectation(description: "favorite")
+        DispatchQueue.main.async {
+            detailPresenter.updateFavoritePlace()
+
+            favoriteExpectaion.fulfill()
+        }
+
+        print(favoritePresenter.getFavoritePlaces())
+
+        
+        XCTAssertEqual(favoritePresenter.places.count, 0)
+        waitForExpectations(timeout: 30) { (error) in
+            XCTAssertEqual(favoritePresenter.places.count, 1)
+          }
+
+    }
 
 }
