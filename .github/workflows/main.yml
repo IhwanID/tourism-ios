@@ -12,11 +12,11 @@ jobs:
           destination: ['platform=iOS Simulator,OS=13.6,name=iPhone 11']
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@main
       - name: Build and Text
         run: |
           cd Tourism
-          xcodebuild clean build test -project Tourism.xcodeproj -scheme Texstyle -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean build test -project Tourism.xcodeproj -scheme Tourism -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env:
          destination: ${{ matrix.destination }}
       - name: Update Code Coverage
