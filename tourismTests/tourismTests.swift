@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Combine
 @testable import tourism
 
 class tourismTests: XCTestCase {
@@ -14,18 +15,24 @@ class tourismTests: XCTestCase {
 
     func testFetchAllPlace(){
         let homeUseCase = Injection.init().provideHome()
-        let homePresenter = HomePresenter(homeUseCase: homeUseCase)
         let placeExpectaion = expectation(description: "place")
-        DispatchQueue.main.async {
-            homePresenter.getPlaces()
+        var cancellables: Set<AnyCancellable> = []
+        var places: [Place] = []
 
-            placeExpectaion.fulfill()
-        }
+        homeUseCase.getPlaces().receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+
+            }, receiveValue: { data in
+                places = data
+                placeExpectaion.fulfill()
+            })
+            .store(in: &cancellables)
+
 
         waitForExpectations(timeout: 30) { (error) in
-            print("total \(homePresenter.places.count)")
-            XCTAssertNotNil(homePresenter.places.count)
-            XCTAssertEqual(10, homePresenter.places.count)
+            print("total \(places.count)")
+            XCTAssertNotNil(places)
+            XCTAssertEqual(10, places.count)
 
           }
 
