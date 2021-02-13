@@ -8,13 +8,14 @@
 import Foundation
 import SwiftUI
 import Combine
+import TourismPlace
 
 class DetailPresenter: ObservableObject {
 
     private var cancellables: Set<AnyCancellable> = []
     private let detailUseCase: DetailUseCase
 
-    @Published var place: Place
+    @Published var place: PlaceDomainModel
     @Published var errorMessage: String = ""
     @Published var loadingState: Bool = false
 

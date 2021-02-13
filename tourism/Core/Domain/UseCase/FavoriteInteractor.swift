@@ -7,10 +7,11 @@
 
 import Foundation
 import Combine
+import TourismPlace
 
 protocol FavoriteUseCase {
     
-    func getFavoritePlaces() -> AnyPublisher<[Place], Error>
+    func getFavoritePlaces() -> AnyPublisher<[PlaceDomainModel], Error>
     
 }
 
@@ -22,7 +23,7 @@ class FavoriteInteractor: FavoriteUseCase {
         self.repository = repository
     }
     
-    func getFavoritePlaces() -> AnyPublisher<[Place], Error> {
+    func getFavoritePlaces() -> AnyPublisher<[PlaceDomainModel], Error> {
         return repository.getFavoritePlaces()
     }
     

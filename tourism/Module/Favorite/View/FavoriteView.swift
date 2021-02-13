@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import TourismPlace
+import Core
 
 struct FavoriteView: View {
 
-    @ObservedObject var presenter: FavoritePresenter
+    @ObservedObject var presenter: GetListPresenter<Any, PlaceDomainModel, Interactor<Any, [PlaceDomainModel], GetPlacesRepository<GetPlacesLocaleDataSource, GetPlacesRemoteDataSource, PlaceTransformer>>>
 
     var body: some View {
         ZStack {
@@ -23,7 +25,7 @@ struct FavoriteView: View {
                 VStack{
                     Text("Error!")
                 }
-            } else if presenter.places.count == 0 {
+            } else if presenter.list.count == 0 {
                 VStack{
                     Text("No Favorite Place")
                 }
@@ -34,12 +36,13 @@ struct FavoriteView: View {
                 ) {
                     VStack(spacing: 30){
                         ForEach(
-                            self.presenter.places,
+                            self.presenter.list,
                             id: \.id
                         ) { place in
-                            self.presenter.linkBuilder(for: place) {
-                                FavoriteRow(place: place).frame(maxWidth: 600, maxHeight: 300)
-                            }
+//                            self.presenter.linkBuilder(for: place) {
+//                                FavoriteRow(place: place).frame(maxWidth: 600, maxHeight: 300)
+//                            }
+                            FavoriteRow(place: place).frame(maxWidth: 600, maxHeight: 300)
                         }
                     }
                     .animation(.spring(response: 0.4, dampingFraction: 0.8))
@@ -48,7 +51,7 @@ struct FavoriteView: View {
                 }
             }
         }.onAppear {
-            self.presenter.getFavoritePlaces()
+            self.presenter.getList(request: nil)
         }.navigationBarTitle(
             Text("Favorite"),
             displayMode: .automatic

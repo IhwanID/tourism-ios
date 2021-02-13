@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TourismPlace
 
 final class PlaceMapper {
 
@@ -27,28 +28,28 @@ final class PlaceMapper {
 
     static func mapPlaceEntitiesToDomains(
         input placeEntities: [PlaceEntity]
-    ) -> [Place] {
+    ) -> [PlaceDomainModel] {
         return placeEntities.map { result in
-            return Place(id: result.id, name: result.name, desc: result.desc, address: result.address, longitude: result.longitude, latitude: result.latitude, like: result.like, image: result.image, favorite: result.favorite
+            return PlaceDomainModel(id: result.id, name: result.name, desc: result.desc, address: result.address, longitude: result.longitude, latitude: result.latitude, like: result.like, image: result.image, favorite: result.favorite
             )
         }
     }
 
     static func mapPlaceResponsesToDomains(
         input placeResponses: [PlaceResponse]
-    ) -> [Place] {
+    ) -> [PlaceDomainModel] {
 
         return placeResponses.map { result in
-            return Place(id: result.id ?? 0, name: result.name ?? "", desc: result.description ?? "", address: result.address ?? "", longitude: result.longitude ?? 0.0, latitude: result.latitude ?? 0.0, like: result.like ?? 0, image: result.image ?? ""
+            return PlaceDomainModel(id: result.id ?? 0, name: result.name ?? "", desc: result.description ?? "", address: result.address ?? "", longitude: result.longitude ?? 0.0, latitude: result.latitude ?? 0.0, like: result.like ?? 0, image: result.image ?? "", favorite: false
             )
         }
     }
 
     static func mapDetailPlaceEntityToDomain(
         input placeEntity: PlaceEntity
-    ) -> Place {
+    ) -> PlaceDomainModel {
 
-        return Place(id: placeEntity.id, name: placeEntity.name, desc: placeEntity.desc, address: placeEntity.address, longitude: placeEntity.longitude , latitude: placeEntity.latitude , like: placeEntity.like, image: placeEntity.image, favorite: placeEntity.favorite
+        return PlaceDomainModel(id: placeEntity.id, name: placeEntity.name, desc: placeEntity.desc, address: placeEntity.address, longitude: placeEntity.longitude , latitude: placeEntity.latitude , like: placeEntity.like, image: placeEntity.image, favorite: placeEntity.favorite
         )
     }
 

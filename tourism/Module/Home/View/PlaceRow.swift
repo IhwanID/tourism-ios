@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import TourismPlace
 
 struct PlaceRow: View {
-    var place: Place
+    var place: PlaceDomainModel
 
     var body: some View {
         VStack(alignment: .center, spacing: 4.0) {

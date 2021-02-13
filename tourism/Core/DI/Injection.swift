@@ -7,6 +7,9 @@
 
 import Foundation
 import RealmSwift
+import Core
+import TourismPlace
+import UIKit
 
 final class Injection: NSObject {
 
@@ -24,7 +27,7 @@ final class Injection: NSObject {
         return HomeInteractor(repository: repository)
     }
 
-    func provideDetail(place: Place) -> DetailUseCase {
+    func provideDetail(place: PlaceDomainModel) -> DetailUseCase {
         let repository = provideRepository()
         return DetailInteractor(repository: repository, place: place)
     }
@@ -32,6 +35,24 @@ final class Injection: NSObject {
     func provideFavorite() -> FavoriteUseCase {
         let repository = provideRepository()
         return FavoriteInteractor(repository: repository)
+    }
+
+    func providePlace<U: UseCase>() -> U where U.Request == Any, U.Response == [PlaceDomainModel] {
+
+        let appDelegate = UIApplication.shared.delegate as! TourismAppDelegate
+
+        let locale = GetPlacesLocaleDataSource(realm: appDelegate.realm)
+
+
+        let remote = GetPlacesRemoteDataSource(endpoint: "https://tourism-api.dicoding.dev/list")
+
+        let mapper = PlaceTransformer()
+
+        let repository = GetPlacesRepository(
+            localeDataSource: locale,
+            remoteDataSource: remote,
+            mapper: mapper)
+        return Interactor(repository: repository) as! U
     }
 
 }

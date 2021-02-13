@@ -7,12 +7,13 @@
 
 import Foundation
 import Combine
+import TourismPlace
 
 protocol PlaceRepositoryProtocol {
 
-    func getPlaces() -> AnyPublisher<[Place], Error>
-    func getFavoritePlaces() -> AnyPublisher<[Place], Error>
-    func updateFavoritPlaces(by id: Int) -> AnyPublisher<Place, Error>
+    func getPlaces() -> AnyPublisher<[PlaceDomainModel], Error>
+    func getFavoritePlaces() -> AnyPublisher<[PlaceDomainModel], Error>
+    func updateFavoritPlaces(by id: Int) -> AnyPublisher<PlaceDomainModel, Error>
 
 }
 
@@ -37,10 +38,10 @@ final class PlaceRepository: NSObject {
 extension PlaceRepository: PlaceRepositoryProtocol {
 
 
-    func getPlaces() -> AnyPublisher<[Place], Error> {
+    func getPlaces() -> AnyPublisher<[PlaceDomainModel], Error> {
 
         return self.locale.getPlaces()
-            .flatMap { result -> AnyPublisher<[Place], Error> in
+            .flatMap { result -> AnyPublisher<[PlaceDomainModel], Error> in
                 if result.isEmpty {
                     return self.remote.getPlaces()
                         .map { PlaceMapper.mapPlaceResponsesToEntities(input: $0) }
@@ -59,7 +60,7 @@ extension PlaceRepository: PlaceRepositoryProtocol {
 
     }
 
-    func getFavoritePlaces() -> AnyPublisher<[Place], Error> {
+    func getFavoritePlaces() -> AnyPublisher<[PlaceDomainModel], Error> {
         return self.locale.getFavoritePlaces()
             .map { PlaceMapper.mapPlaceEntitiesToDomains(input: $0) }
             .eraseToAnyPublisher()
@@ -67,7 +68,7 @@ extension PlaceRepository: PlaceRepositoryProtocol {
 
     func updateFavoritPlaces(
         by id: Int
-    ) -> AnyPublisher<Place, Error> {
+    ) -> AnyPublisher<PlaceDomainModel, Error> {
         return self.locale.updateFavoritePlace(by: id)
             .map { PlaceMapper.mapDetailPlaceEntityToDomain(input: $0) }
             .eraseToAnyPublisher()

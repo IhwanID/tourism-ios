@@ -7,10 +7,11 @@
 
 import Foundation
 import SwiftUI
+import TourismPlace
 
 struct FavoriteRow: View {
 
-    var place: Place
+    var place: PlaceDomainModel
 
     var body: some View {
         VStack(alignment: .center)  {

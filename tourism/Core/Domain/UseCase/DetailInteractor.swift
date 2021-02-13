@@ -7,31 +7,32 @@
 
 import Foundation
 import Combine
+import TourismPlace
 
 protocol DetailUseCase {
     
-    func getPlace() -> Place
-    func updateFavoritePlace() -> AnyPublisher<Place, Error>
+    func getPlace() -> PlaceDomainModel
+    func updateFavoritePlace() -> AnyPublisher<PlaceDomainModel, Error>
 }
 
 class DetailInteractor: DetailUseCase {
     
     private let repository: PlaceRepositoryProtocol
-    private let place: Place
+    private let place: PlaceDomainModel
     
     required init(
         repository: PlaceRepositoryProtocol,
-        place: Place
+        place: PlaceDomainModel
     ) {
         self.repository = repository
         self.place = place
     }
     
-    func getPlace() -> Place {
+    func getPlace() -> PlaceDomainModel {
         return place
     }
     
-    func updateFavoritePlace() -> AnyPublisher<Place, Error> {
+    func updateFavoritePlace() -> AnyPublisher<PlaceDomainModel, Error> {
         return repository.updateFavoritPlaces(by: place.id)
     }
 }

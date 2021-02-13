@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import Core
+import TourismPlace
 
 struct HomeView: View {
-    @ObservedObject var presenter: HomePresenter
+
+    @ObservedObject var presenter: GetListPresenter<Any, PlaceDomainModel, Interactor<Any, [PlaceDomainModel], GetPlacesRepository<GetPlacesLocaleDataSource, GetPlacesRemoteDataSource, PlaceTransformer>>>
     @Namespace var namespace
     @State var searchText = ""
 
     var body: some View {
         ZStack {
-            if presenter.loadingState {
+            if presenter.isLoading {
                 VStack {
                     ProgressView()
                 }
@@ -30,15 +33,20 @@ struct HomeView: View {
                         columns: [GridItem(.adaptive(minimum: 159), spacing: 16)],
                         spacing: 16) {
                         ForEach(
-                            self.presenter.places,
+                            self.presenter.list,
                             id: \.id
                         ){ place in
                             if place.name.localizedCaseInsensitiveContains(searchText) || searchText == ""{
+
+//                                ZStack {
+//                                    PlaceRow(place: place)
+//                                 }.buttonStyle(PlainButtonStyle())
+
                                 VStack {
-                                    self.presenter.linkBuilder(for: place) {
+                                    linkBuilder(for: place) {
                                         PlaceRow(place: place)
                                     }
-                                }
+                               }
                             }
 
                         }}
@@ -47,10 +55,18 @@ struct HomeView: View {
 
             }
         }.onAppear {
-            if self.presenter.places.count == 0 {
-                self.presenter.getPlaces()
+            if self.presenter.list.count == 0 {
+                self.presenter.getList(request: nil)
             }
         }.navigationTitle("Home")
         
+    }
+
+    func linkBuilder<Content: View>(
+        for place: PlaceDomainModel,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        NavigationLink(
+            destination: HomeRouter().makeDetailView(for: place)) { content() }
     }
 }

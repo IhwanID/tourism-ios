@@ -7,22 +7,23 @@
 
 import Foundation
 import Combine
+import TourismPlace
 
 protocol HomeUseCase {
-    
-    func getPlaces() -> AnyPublisher<[Place], Error>
+
+    func getPlaces() -> AnyPublisher<[PlaceDomainModel], Error>
 }
 
 class HomeInteractor: HomeUseCase {
-    
+
     private let repository: PlaceRepositoryProtocol
-    
+
     required init(repository: PlaceRepositoryProtocol) {
         self.repository = repository
     }
-    
-    func getPlaces() -> AnyPublisher<[Place], Error> {
+
+    func getPlaces() -> AnyPublisher<[PlaceDomainModel], Error> {
         return repository.getPlaces()
     }
-    
+
 }
