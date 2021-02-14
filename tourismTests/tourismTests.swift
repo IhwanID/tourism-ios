@@ -7,36 +7,28 @@
 
 import XCTest
 import Combine
+import Core
+import TourismPlace
 @testable import tourism
 
 class tourismTests: XCTestCase {
+    override func setUpWithError() throws {
+            // Put setup code here. This method is called before the invocation of each test method in the class.
+        }
 
+        override func tearDownWithError() throws {
+            // Put teardown code here. This method is called after the invocation of each test method in the class.
+        }
 
+        func testExample() throws {
+            // This is an example of a functional test case.
+            // Use XCTAssert and related functions to verify your tests produce the correct results.
+        }
 
-    func testFetchAllPlace(){
-        let homeUseCase = Injection.init().provideHome()
-        let placeExpectaion = expectation(description: "place")
-        var cancellables: Set<AnyCancellable> = []
-        var places: [Place] = []
-
-        homeUseCase.getPlaces().receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-
-            }, receiveValue: { data in
-                places = data
-                placeExpectaion.fulfill()
-            })
-            .store(in: &cancellables)
-
-
-        waitForExpectations(timeout: 30) { (error) in
-            XCTAssertNotNil(places)
-            XCTAssertEqual(10, places.count)
-
-          }
-
-    }
-
-    
-
+        func testPerformanceExample() throws {
+            // This is an example of a performance test case.
+            self.measure {
+                // Put the code you want to measure the time of here.
+            }
+        }
 }
