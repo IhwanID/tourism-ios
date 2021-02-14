@@ -50,12 +50,12 @@ public struct GetPlacesLocaleDataSource: LocaleDataSource {
            }.eraseToAnyPublisher()
        }
 
-    public func get() -> AnyPublisher<[PlaceModuleEntity], Error> {
+    public func getFavorite() -> AnyPublisher<[PlaceModuleEntity], Error> {
         return Future<[PlaceModuleEntity], Error> { completion in
             let placeEntities = {
                 _realm.objects(PlaceModuleEntity.self)
                     .filter("favorite = \(true)")
-                    .sorted(byKeyPath: "name", ascending: true)
+                    .sorted(byKeyPath: "name", ascending: false)
             }()
             completion(.success(placeEntities.toArray(ofType: PlaceModuleEntity.self)))
         }.eraseToAnyPublisher()

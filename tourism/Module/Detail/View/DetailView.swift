@@ -7,9 +7,13 @@
 
 import SwiftUI
 import MapKit
+import Core
+import TourismPlace
 
 struct DetailView: View {
+
     @ObservedObject var presenter: DetailPresenter
+    var place: PlaceDomainModel
     @State var coordinateRegion: MKCoordinateRegion = {
         var region = MKCoordinateRegion()
         region.center.latitude = -0.789275

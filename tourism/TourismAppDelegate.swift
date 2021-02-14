@@ -29,18 +29,4 @@ class TourismAppDelegate: NSObject, UIApplicationDelegate {
         return scene
     }
 
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken
-                        deviceToken: Data) {
-        let token = deviceToken.map{ data in String(format: "%02.2hhx", data) }.joined()
-        print("deviceToken \(token)")
-
-    }
-
-    func application(_ application: UIApplication,
-                     didFailToRegisterForRemoteNotificationsWithError
-                        error: Error) {
-        print("deviceToken failure")
-        // Try again later.
-    }
 }

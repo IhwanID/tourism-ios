@@ -11,7 +11,7 @@ import TourismPlace
 
 struct ContentView: View {
     @EnvironmentObject var homePresenter: GetListPresenter<Any, PlaceDomainModel, Interactor<Any, [PlaceDomainModel], GetPlacesRepository<GetPlacesLocaleDataSource, GetPlacesRemoteDataSource, PlaceTransformer>>>
-    @EnvironmentObject var favoritePresenter: GetListPresenter<Any, PlaceDomainModel, Interactor<Any, [PlaceDomainModel], GetPlacesRepository<GetPlacesLocaleDataSource, GetPlacesRemoteDataSource, PlaceTransformer>>>
+    @EnvironmentObject var favoritePresenter: GetListPresenter<Any, PlaceDomainModel, Interactor<Any, [PlaceDomainModel], GetFavoritePlaceRepository<GetPlacesLocaleDataSource,  PlaceTransformer>>>
     var body: some View {
         TabView {
             NavigationView {

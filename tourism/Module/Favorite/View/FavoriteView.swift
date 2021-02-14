@@ -12,7 +12,7 @@ import Core
 
 struct FavoriteView: View {
 
-    @ObservedObject var presenter: GetListPresenter<Any, PlaceDomainModel, Interactor<Any, [PlaceDomainModel], GetPlacesRepository<GetPlacesLocaleDataSource, GetPlacesRemoteDataSource, PlaceTransformer>>>
+    @ObservedObject var presenter: GetListPresenter<Any, PlaceDomainModel, Interactor<Any, [PlaceDomainModel], GetFavoritePlaceRepository<GetPlacesLocaleDataSource,  PlaceTransformer>>>
 
     var body: some View {
         ZStack {

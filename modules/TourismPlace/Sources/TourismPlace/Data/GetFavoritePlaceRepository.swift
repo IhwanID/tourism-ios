@@ -2,19 +2,18 @@
 //  File.swift
 //  
 //
-//  Created by Ihwan ID on 13/02/21.
+//  Created by Ihwan ID on 14/02/21.
 //
 
 import Foundation
 import Core
 import Combine
 
-public struct UpdateFavoritePlacesRepository<
+public struct GetFavoritePlaceRepository<
     PlaceLocaleDataSource: LocaleDataSource,
     Transformer: Mapper>: Repository
 where
     PlaceLocaleDataSource.Response == PlaceModuleEntity,
-    Transformer.Response == [PlaceResponse],
     Transformer.Entity == [PlaceModuleEntity],
     Transformer.Domain == [PlaceDomainModel] {
 
@@ -35,7 +34,6 @@ where
 
     public func execute(request: Any?) -> AnyPublisher<[PlaceDomainModel], Error> {
         return _localeDataSource.getFavorite()
-            .map { _mapper.transformEntityToDomain(entity: $0) }
-            .eraseToAnyPublisher()
+            .map { _mapper.transformEntityToDomain(entity: $0) }.eraseToAnyPublisher()
     }
 }

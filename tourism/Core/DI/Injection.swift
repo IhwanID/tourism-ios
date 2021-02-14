@@ -43,7 +43,6 @@ final class Injection: NSObject {
 
         let locale = GetPlacesLocaleDataSource(realm: appDelegate.realm)
 
-
         let remote = GetPlacesRemoteDataSource(endpoint: "https://tourism-api.dicoding.dev/list")
 
         let mapper = PlaceTransformer()
@@ -51,6 +50,34 @@ final class Injection: NSObject {
         let repository = GetPlacesRepository(
             localeDataSource: locale,
             remoteDataSource: remote,
+            mapper: mapper)
+        return Interactor(repository: repository) as! U
+    }
+
+    func provideFavorites<U: UseCase>() -> U where U.Request == Any, U.Response == [PlaceDomainModel] {
+
+        let appDelegate = UIApplication.shared.delegate as! TourismAppDelegate
+
+        let locale = GetPlacesLocaleDataSource(realm: appDelegate.realm)
+
+        let mapper = PlaceTransformer()
+
+        let repository = GetFavoritePlaceRepository(
+            localeDataSource: locale,
+            mapper: mapper)
+        return Interactor(repository: repository) as! U
+    }
+
+    func provideDetails<U: UseCase>() -> U where U.Request == Any, U.Response == PlaceDomainModel {
+
+        let appDelegate = UIApplication.shared.delegate as! TourismAppDelegate
+
+        let locale = GetPlacesLocaleDataSource(realm: appDelegate.realm)
+
+        let mapper = PlaceTransformer()
+
+        let repository = UpdateFavoritePlacesRepository(
+            localeDataSource: locale,
             mapper: mapper)
         return Interactor(repository: repository) as! U
     }

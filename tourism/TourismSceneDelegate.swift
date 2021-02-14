@@ -25,13 +25,12 @@ class TourismSceneDelegate: NSObject, UIWindowSceneDelegate {
             let favoriteUseCase: Interactor<
                 Any,
                 [PlaceDomainModel],
-                GetPlacesRepository<
+                GetFavoritePlaceRepository<
                     GetPlacesLocaleDataSource,
-                    GetPlacesRemoteDataSource,
                     PlaceTransformer>
-            >  = Injection.init().providePlace()
+            >  = Injection.init().provideFavorites()
 
-            let placeUseCase: Interactor<
+            let homeUseCase: Interactor<
                 Any,
                 [PlaceDomainModel],
                 GetPlacesRepository<
@@ -40,7 +39,7 @@ class TourismSceneDelegate: NSObject, UIWindowSceneDelegate {
                     PlaceTransformer>
             > = Injection.init().providePlace()
 
-            let homePresenter = GetListPresenter(useCase: placeUseCase)
+            let homePresenter = GetListPresenter(useCase: homeUseCase)
 
             let favoritePresenter = GetListPresenter(useCase: favoriteUseCase)
 
