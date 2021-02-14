@@ -9,9 +9,12 @@ import Foundation
 import Core
 
 public struct PlaceTransformer: Mapper {
+
     public typealias Response = [PlaceResponse]
     public typealias Entity = [PlaceModuleEntity]
     public typealias Domain = [PlaceDomainModel]
+    public typealias SingleDomain = PlaceDomainModel
+    public typealias SingleEntity = PlaceModuleEntity
 
     public init() {}
 
@@ -35,5 +38,11 @@ public struct PlaceTransformer: Mapper {
                 id: result.id, name: result.name, desc: result.desc, address: result.address, longitude: result.longitude, latitude: result.latitude, like: result.like, image: result.image, favorite: result.favorite
             )
         }
+    }
+
+    public func transformSingleEntityToDomain(result: PlaceModuleEntity) -> PlaceDomainModel {
+        return PlaceDomainModel(
+            id: result.id, name: result.name, desc: result.desc, address: result.address, longitude: result.longitude, latitude: result.latitude, like: result.like, image: result.image, favorite: result.favorite
+        )
     }
 }

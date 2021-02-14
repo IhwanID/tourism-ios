@@ -39,10 +39,10 @@ struct FavoriteView: View {
                             self.presenter.list,
                             id: \.id
                         ) { place in
-//                            self.presenter.linkBuilder(for: place) {
-//                                FavoriteRow(place: place).frame(maxWidth: 600, maxHeight: 300)
-//                            }
-                            FavoriteRow(place: place).frame(maxWidth: 600, maxHeight: 300)
+                           linkBuilder(for: place) {
+                                FavoriteRow(place: place).frame(maxWidth: 600, maxHeight: 300)
+                            }
+
                         }
                     }
                     .animation(.spring(response: 0.4, dampingFraction: 0.8))
@@ -58,4 +58,11 @@ struct FavoriteView: View {
         )
     }
 
+    func linkBuilder<Content: View>(
+        for place: PlaceDomainModel,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        NavigationLink(
+            destination: FavoriteRouter().makeDetailView(for: place)) { content() }
+    }
 }

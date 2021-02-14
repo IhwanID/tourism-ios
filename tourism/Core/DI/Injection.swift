@@ -13,29 +13,29 @@ import UIKit
 
 final class Injection: NSObject {
 
-    private func provideRepository() -> PlaceRepositoryProtocol {
-        let realm = try? Realm()
-
-        let locale: LocalDataSource = LocalDataSource.sharedInstance(realm)
-        let remote: RemoteDataSource = RemoteDataSource.sharedInstance
-
-        return PlaceRepository.sharedInstance(locale, remote)
-    }
-
-    func provideHome() -> HomeUseCase {
-        let repository = provideRepository()
-        return HomeInteractor(repository: repository)
-    }
-
-    func provideDetail(place: PlaceDomainModel) -> DetailUseCase {
-        let repository = provideRepository()
-        return DetailInteractor(repository: repository, place: place)
-    }
-
-    func provideFavorite() -> FavoriteUseCase {
-        let repository = provideRepository()
-        return FavoriteInteractor(repository: repository)
-    }
+//    private func provideRepository() -> PlaceRepositoryProtocol {
+//        let realm = try? Realm()
+//
+//        let locale: LocalDataSource = LocalDataSource.sharedInstance(realm)
+//        let remote: RemoteDataSource = RemoteDataSource.sharedInstance
+//
+//        return PlaceRepository.sharedInstance(locale, remote)
+//    }
+//
+//    func provideHome() -> HomeUseCase {
+//        let repository = provideRepository()
+//        return HomeInteractor(repository: repository)
+//    }
+//
+//    func provideDetail(place: PlaceDomainModel) -> DetailUseCase {
+//        let repository = provideRepository()
+//        return DetailInteractor(repository: repository, place: place)
+//    }
+//
+//    func provideFavorite() -> FavoriteUseCase {
+//        let repository = provideRepository()
+//        return FavoriteInteractor(repository: repository)
+//    }
 
     func providePlace<U: UseCase>() -> U where U.Request == Any, U.Response == [PlaceDomainModel] {
 
@@ -68,7 +68,7 @@ final class Injection: NSObject {
         return Interactor(repository: repository) as! U
     }
 
-    func provideDetails<U: UseCase>() -> U where U.Request == Any, U.Response == PlaceDomainModel {
+    func provideDetails<U: UseCase>() -> U where U.Request == Int, U.Response == PlaceDomainModel {
 
         let appDelegate = UIApplication.shared.delegate as! TourismAppDelegate
 
@@ -77,6 +77,20 @@ final class Injection: NSObject {
         let mapper = PlaceTransformer()
 
         let repository = UpdateFavoritePlacesRepository(
+            localeDataSource: locale,
+            mapper: mapper)
+        return Interactor(repository: repository) as! U
+    }
+
+    func provideSinglePlace<U: UseCase>() -> U where U.Request == Int, U.Response == PlaceDomainModel {
+
+        let appDelegate = UIApplication.shared.delegate as! TourismAppDelegate
+
+        let locale = GetPlacesLocaleDataSource(realm: appDelegate.realm)
+
+        let mapper = PlaceTransformer()
+
+        let repository = GetPlaceRepository(
             localeDataSource: locale,
             mapper: mapper)
         return Interactor(repository: repository) as! U

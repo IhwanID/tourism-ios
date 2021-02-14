@@ -2,14 +2,14 @@
 //  File.swift
 //  
 //
-//  Created by Ihwan ID on 13/02/21.
+//  Created by Ihwan ID on 14/02/21.
 //
 
 import Foundation
 import Core
 import Combine
 
-public struct UpdateFavoritePlacesRepository<
+public struct GetPlaceRepository<
     PlaceLocaleDataSource: LocaleDataSource,
     Transformer: Mapper>: Repository
 where
@@ -31,8 +31,9 @@ where
         _mapper = mapper
     }
 
+
     public func execute(request: Int?) -> AnyPublisher<PlaceDomainModel, Error> {
-        return _localeDataSource.update(id: request ?? 0)
+        return _localeDataSource.get(id: request ?? 0)
             .map { _mapper.transformSingleEntityToDomain(result: $0) }
             .eraseToAnyPublisher()
     }

@@ -30,7 +30,6 @@ class tourismTests: XCTestCase {
 
 
         waitForExpectations(timeout: 30) { (error) in
-            print("total \(places.count)")
             XCTAssertNotNil(places)
             XCTAssertEqual(10, places.count)
 

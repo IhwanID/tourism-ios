@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Core",
+        "repositoryURL": "https://github.com/IhwanID/Core.git",
+        "state": {
+          "branch": null,
+          "revision": "724ede6369d561dd0f631662f0d5d55841f58b54",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "Realm",
         "repositoryURL": "https://github.com/realm/realm-cocoa",
         "state": {

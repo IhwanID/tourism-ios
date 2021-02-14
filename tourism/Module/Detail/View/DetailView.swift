@@ -12,7 +12,7 @@ import TourismPlace
 
 struct DetailView: View {
 
-    @ObservedObject var presenter: DetailPresenter
+    @ObservedObject var presenter: PlacePresenter<Int, PlaceDomainModel, Interactor<Int, PlaceDomainModel, GetPlaceRepository<GetPlacesLocaleDataSource,  PlaceTransformer>>,Interactor<Int, PlaceDomainModel, UpdateFavoritePlacesRepository<GetPlacesLocaleDataSource,  PlaceTransformer>>>
     var place: PlaceDomainModel
     @State var coordinateRegion: MKCoordinateRegion = {
         var region = MKCoordinateRegion()
@@ -25,43 +25,54 @@ struct DetailView: View {
     
 
     var body: some View {
-        ZStack {
-            if presenter.loadingState {
+        ScrollView(.vertical) {
+            if self.presenter.isLoading {
                 ProgressView()
             } else {
-                ScrollView(.vertical) {
-                    VStack {
-                        RemoteImage(url: presenter.place.image)
-                            .frame(minWidth: 0,
-                                   maxWidth: .infinity,
-                                   minHeight: 120,
-                                   maxHeight: .infinity,
-                                   alignment: .topLeading)
-                            .aspectRatio(contentMode: .fill)
+                VStack {
+                    RemoteImage(url: place.image)
+                        .frame(minWidth: 0,
+                               maxWidth: .infinity,
+                               minHeight: 120,
+                               maxHeight: .infinity,
+                               alignment: .topLeading)
+                        .aspectRatio(contentMode: .fill)
 
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text("Address")
-                                .font(.headline)
-                                .padding([.top, .bottom])
-                            Text(self.presenter.place.address)
-                                .font(.system(size: 15))
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Address")
+                            .font(.headline)
+                            .padding([.top, .bottom])
+                        Text(self.presenter.item?.address ?? "")
+                            .font(.system(size: 15))
 
-                            Text("Description")
-                                .font(.headline)
-                                .padding([.top, .bottom])
-                            Text(self.presenter.place.desc)
-                                .font(.system(size: 15))
-                                .lineLimit(nil)
-                        }
-                        Map(coordinateRegion: $coordinateRegion, annotationItems: [ AnnotationItem(coordinate: CLLocationCoordinate2D(latitude: self.presenter.place.latitude, longitude: self.presenter.place.longitude))]){item in
-                            MapPin(coordinate: item.coordinate)
-                        }
-                    }.padding()
-                }
+                        Text("Description")
+                            .font(.headline)
+                            .padding([.top, .bottom])
+                        Text(self.presenter.item?.desc ?? "")
+                            .font(.system(size: 15))
+                            .lineLimit(nil)
+                    }
+                    Map(coordinateRegion: $coordinateRegion, annotationItems: [ AnnotationItem(coordinate: CLLocationCoordinate2D(latitude: self.presenter.item?.latitude ?? 0.0, longitude: self.presenter.item?.longitude ?? 0.0))]){item in
+                        MapPin(coordinate: item.coordinate)
+                    }
+                }.padding()
             }
-        }.navigationBarTitle(Text(self.presenter.place.name), displayMode: .large)
-        .navigationBarItems(trailing: Image(systemName: presenter.place.favorite ? "heart.fill" : "heart")
+        }
+        .navigationBarTitle(Text(place.name), displayMode: .large)
+        .navigationBarItems(trailing:
+                                Image(systemName: presenter.item?.favorite == true ? "heart.fill" : "heart")
                                 .font(.system(size: 28))
-                                .foregroundColor(.orange).onTapGesture { self.presenter.updateFavoritePlace() })
+                                .foregroundColor(.orange)
+                                .onTapGesture { self.presenter.updateFavoritePlace(request: place.id)
+
+                                }
+        )
+        .onAppear{
+            if self.presenter.item == nil {
+                self.presenter.getPlace(place: place.id)
+            }
+
+        }
+
     }
 }

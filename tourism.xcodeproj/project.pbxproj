@@ -11,13 +11,6 @@
 		60025C1E254C012A00B9D7FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60025C1D254C012A00B9D7FE /* Assets.xcassets */; };
 		60025C21254C012A00B9D7FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60025C20254C012A00B9D7FE /* Preview Assets.xcassets */; };
 		60025C32254DE51C00B9D7FE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C31254DE51C00B9D7FE /* HomeView.swift */; };
-		60025C3B254DEAC100B9D7FE /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C3A254DEAC100B9D7FE /* Place.swift */; };
-		60025C42254DF12600B9D7FE /* PlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C41254DF12600B9D7FE /* PlaceResponse.swift */; };
-		60025C45254DF31700B9D7FE /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C44254DF31700B9D7FE /* RemoteDataSource.swift */; };
-		60025C48254DF3FF00B9D7FE /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C47254DF3FF00B9D7FE /* PlaceRepository.swift */; };
-		60025C4C254DF50F00B9D7FE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C4B254DF50F00B9D7FE /* CustomError.swift */; };
-		60025C4F254DF5FE00B9D7FE /* PlaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */; };
-		60025C54254DF64800B9D7FE /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60025C53254DF64800B9D7FE /* LocalDataSource.swift */; };
 		60636F9D25D7C155006CBA1C /* TourismPlace in Frameworks */ = {isa = PBXBuildFile; productRef = 60636F9C25D7C155006CBA1C /* TourismPlace */; };
 		60636FA525D7C3E2006CBA1C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 60636FA425D7C3E2006CBA1C /* Alamofire */; };
 		60636FB125D7C57A006CBA1C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 60636FB025D7C57A006CBA1C /* Realm */; };
@@ -26,23 +19,15 @@
 		6087BF32256A838F00684CB0 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6087BF31256A838F00684CB0 /* RemoteImage.swift */; };
 		60BDCD8825D7AE92008BF3E7 /* TourismAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BDCD8725D7AE92008BF3E7 /* TourismAppDelegate.swift */; };
 		60BDCD8E25D7AECF008BF3E7 /* TourismSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BDCD8D25D7AECF008BF3E7 /* TourismSceneDelegate.swift */; };
-		60C2E0C8254E687E0012D28B /* PlaceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0C7254E687E0012D28B /* PlaceMapper.swift */; };
 		60C2E0CB254EC6AE0012D28B /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0CA254EC6AE0012D28B /* Injection.swift */; };
-		60C2E0CF254EC8920012D28B /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0CE254EC8920012D28B /* HomeInteractor.swift */; };
-		60C2E0D2254EC9180012D28B /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0D1254EC9180012D28B /* DetailInteractor.swift */; };
-		60C2E0DA254EF93A0012D28B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0D9254EF93A0012D28B /* HomePresenter.swift */; };
 		60C2E0DE254EF95C0012D28B /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0DD254EF95C0012D28B /* HomeRouter.swift */; };
-		60C2E0E4254EFE9D0012D28B /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */; };
 		60C2E0E7254EFEBD0012D28B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2E0E6254EFEBD0012D28B /* DetailView.swift */; };
 		60E5B2CE25B3D15600563A0A /* tourismTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E5B2CD25B3D15600563A0A /* tourismTests.swift */; };
 		60E6FF59257CC0060058A9D1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6FF58257CC0060058A9D1 /* ProfileView.swift */; };
 		60E6FF61257E8E560058A9D1 /* AnnotationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6FF60257E8E560058A9D1 /* AnnotationItem.swift */; };
 		60F5FEBB256D46BF009C946E /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEBA256D46BF009C946E /* FavoriteRouter.swift */; };
 		60F5FEBF256D470A009C946E /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEBE256D470A009C946E /* FavoriteView.swift */; };
-		60F5FEC2256D4720009C946E /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEC1256D4720009C946E /* FavoritePresenter.swift */; };
 		60F5FEC5256D478B009C946E /* FavoriteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEC4256D478B009C946E /* FavoriteRow.swift */; };
-		60F5FEC8256D4DCA009C946E /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5FEC7256D4DCA009C946E /* FavoriteInteractor.swift */; };
-		60F7365025D4216C00934028 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 60F7364F25D4216C00934028 /* Core */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,25 +47,13 @@
 		60025C20254C012A00B9D7FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		60025C22254C012A00B9D7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60025C31254DE51C00B9D7FE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		60025C3A254DEAC100B9D7FE /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		60025C41254DF12600B9D7FE /* PlaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceResponse.swift; sourceTree = "<group>"; };
-		60025C44254DF31700B9D7FE /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
-		60025C47254DF3FF00B9D7FE /* PlaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
-		60025C4B254DF50F00B9D7FE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
-		60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceEntity.swift; sourceTree = "<group>"; };
-		60025C53254DF64800B9D7FE /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		60636F9925D7B786006CBA1C /* TourismPlace */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TourismPlace; path = modules/TourismPlace; sourceTree = "<group>"; };
 		6087BF2B256A802200684CB0 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
 		6087BF31256A838F00684CB0 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		60BDCD8725D7AE92008BF3E7 /* TourismAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourismAppDelegate.swift; sourceTree = "<group>"; };
 		60BDCD8D25D7AECF008BF3E7 /* TourismSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourismSceneDelegate.swift; sourceTree = "<group>"; };
-		60C2E0C7254E687E0012D28B /* PlaceMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapper.swift; sourceTree = "<group>"; };
 		60C2E0CA254EC6AE0012D28B /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
-		60C2E0CE254EC8920012D28B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
-		60C2E0D1254EC9180012D28B /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
-		60C2E0D9254EF93A0012D28B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		60C2E0DD254EF95C0012D28B /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
-		60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		60C2E0E6254EFEBD0012D28B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		60E5B2CB25B3D15600563A0A /* tourismTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tourismTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E5B2CD25B3D15600563A0A /* tourismTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tourismTests.swift; sourceTree = "<group>"; };
@@ -89,10 +62,7 @@
 		60E6FF60257E8E560058A9D1 /* AnnotationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationItem.swift; sourceTree = "<group>"; };
 		60F5FEBA256D46BF009C946E /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		60F5FEBE256D470A009C946E /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
-		60F5FEC1256D4720009C946E /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		60F5FEC4256D478B009C946E /* FavoriteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRow.swift; sourceTree = "<group>"; };
-		60F5FEC7256D4DCA009C946E /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
-		60F7364B25D4213E00934028 /* Core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Core; path = modules/Core; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +74,6 @@
 				60636F9D25D7C155006CBA1C /* TourismPlace in Frameworks */,
 				60636FB125D7C57A006CBA1C /* Realm in Frameworks */,
 				60636FB325D7C57A006CBA1C /* RealmSwift in Frameworks */,
-				60F7365025D4216C00934028 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				60636F9925D7B786006CBA1C /* TourismPlace */,
-				60F7364B25D4213E00934028 /* Core */,
 				60025C18254C012900B9D7FE /* tourism */,
 				60E5B2CC25B3D15600563A0A /* tourismTests */,
 				60025C17254C012900B9D7FE /* Products */,
@@ -142,14 +110,12 @@
 		60025C18254C012900B9D7FE /* tourism */ = {
 			isa = PBXGroup;
 			children = (
+				6063700F25D94F20006CBA1C /* App */,
 				60C2E0D4254EF4710012D28B /* Module */,
 				60025C34254DE6B300B9D7FE /* Core */,
-				60025C1B254C012900B9D7FE /* ContentView.swift */,
 				60025C1D254C012A00B9D7FE /* Assets.xcassets */,
 				60025C22254C012A00B9D7FE /* Info.plist */,
 				60025C1F254C012A00B9D7FE /* Preview Content */,
-				60BDCD8725D7AE92008BF3E7 /* TourismAppDelegate.swift */,
-				60BDCD8D25D7AECF008BF3E7 /* TourismSceneDelegate.swift */,
 			);
 			path = tourism;
 			sourceTree = "<group>";
@@ -166,8 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				60025C38254DE6DA00B9D7FE /* Utils */,
-				60025C37254DE6D300B9D7FE /* Domain */,
-				60025C36254DE6C800B9D7FE /* Data */,
 				60025C35254DE6C100B9D7FE /* DI */,
 			);
 			path = Core;
@@ -181,78 +145,23 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
-		60025C36254DE6C800B9D7FE /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				60025C40254DEFB200B9D7FE /* Local */,
-				60025C3F254DEFAB00B9D7FE /* Remote */,
-				60025C47254DF3FF00B9D7FE /* PlaceRepository.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		60025C37254DE6D300B9D7FE /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				60C2E0CD254EC87A0012D28B /* UseCase */,
-				60025C39254DE71000B9D7FE /* Model */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		60025C38254DE6DA00B9D7FE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				60025C4A254DF4DD00B9D7FE /* Extension */,
-				60C2E0C7254E687E0012D28B /* PlaceMapper.swift */,
 				6087BF31256A838F00684CB0 /* RemoteImage.swift */,
 				60E6FF60257E8E560058A9D1 /* AnnotationItem.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		60025C39254DE71000B9D7FE /* Model */ = {
+		6063700F25D94F20006CBA1C /* App */ = {
 			isa = PBXGroup;
 			children = (
-				60025C3A254DEAC100B9D7FE /* Place.swift */,
+				60BDCD8725D7AE92008BF3E7 /* TourismAppDelegate.swift */,
+				60BDCD8D25D7AECF008BF3E7 /* TourismSceneDelegate.swift */,
+				60025C1B254C012900B9D7FE /* ContentView.swift */,
 			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		60025C3F254DEFAB00B9D7FE /* Remote */ = {
-			isa = PBXGroup;
-			children = (
-				60025C41254DF12600B9D7FE /* PlaceResponse.swift */,
-				60025C44254DF31700B9D7FE /* RemoteDataSource.swift */,
-			);
-			path = Remote;
-			sourceTree = "<group>";
-		};
-		60025C40254DEFB200B9D7FE /* Local */ = {
-			isa = PBXGroup;
-			children = (
-				60025C4E254DF5FE00B9D7FE /* PlaceEntity.swift */,
-				60025C53254DF64800B9D7FE /* LocalDataSource.swift */,
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
-		60025C4A254DF4DD00B9D7FE /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				60025C4B254DF50F00B9D7FE /* CustomError.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		60C2E0CD254EC87A0012D28B /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				60C2E0CE254EC8920012D28B /* HomeInteractor.swift */,
-				60C2E0D1254EC9180012D28B /* DetailInteractor.swift */,
-				60F5FEC7256D4DCA009C946E /* FavoriteInteractor.swift */,
-			);
-			path = UseCase;
+			path = App;
 			sourceTree = "<group>";
 		};
 		60C2E0D4254EF4710012D28B /* Module */ = {
@@ -271,17 +180,8 @@
 			children = (
 				60C2E0D8254EF5CA0012D28B /* View */,
 				60C2E0D7254EF5C00012D28B /* Router */,
-				60C2E0D6254EF5BA0012D28B /* Presenter */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		60C2E0D6254EF5BA0012D28B /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				60C2E0D9254EF93A0012D28B /* HomePresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		60C2E0D7254EF5C00012D28B /* Router */ = {
@@ -305,17 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				60C2E0E2254EFE030012D28B /* View */,
-				60C2E0E1254EFDF90012D28B /* Presenter */,
 			);
 			path = Detail;
-			sourceTree = "<group>";
-		};
-		60C2E0E1254EFDF90012D28B /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				60C2E0E3254EFE9D0012D28B /* DetailPresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		60C2E0E2254EFE030012D28B /* View */ = {
@@ -348,17 +239,8 @@
 			children = (
 				60F5FEB9256D45E5009C946E /* Router */,
 				60F5FEB8256D45DF009C946E /* View */,
-				60F5FEB7256D45D8009C946E /* Presenter */,
 			);
 			path = Favorite;
-			sourceTree = "<group>";
-		};
-		60F5FEB7256D45D8009C946E /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				60F5FEC1256D4720009C946E /* FavoritePresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		60F5FEB8256D45DF009C946E /* View */ = {
@@ -402,7 +284,6 @@
 			);
 			name = tourism;
 			packageProductDependencies = (
-				60F7364F25D4216C00934028 /* Core */,
 				60636F9C25D7C155006CBA1C /* TourismPlace */,
 				60636FA425D7C3E2006CBA1C /* Alamofire */,
 				60636FB025D7C57A006CBA1C /* Realm */,
@@ -495,33 +376,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60F5FEC8256D4DCA009C946E /* FavoriteInteractor.swift in Sources */,
 				60E6FF59257CC0060058A9D1 /* ProfileView.swift in Sources */,
-				60025C54254DF64800B9D7FE /* LocalDataSource.swift in Sources */,
 				60C2E0E7254EFEBD0012D28B /* DetailView.swift in Sources */,
 				60025C32254DE51C00B9D7FE /* HomeView.swift in Sources */,
-				60025C4C254DF50F00B9D7FE /* CustomError.swift in Sources */,
 				60F5FEBB256D46BF009C946E /* FavoriteRouter.swift in Sources */,
-				60C2E0DA254EF93A0012D28B /* HomePresenter.swift in Sources */,
-				60025C42254DF12600B9D7FE /* PlaceResponse.swift in Sources */,
 				6087BF2C256A802200684CB0 /* PlaceRow.swift in Sources */,
 				60BDCD8825D7AE92008BF3E7 /* TourismAppDelegate.swift in Sources */,
 				60C2E0DE254EF95C0012D28B /* HomeRouter.swift in Sources */,
 				60F5FEC5256D478B009C946E /* FavoriteRow.swift in Sources */,
 				60BDCD8E25D7AECF008BF3E7 /* TourismSceneDelegate.swift in Sources */,
-				60025C48254DF3FF00B9D7FE /* PlaceRepository.swift in Sources */,
 				60E6FF61257E8E560058A9D1 /* AnnotationItem.swift in Sources */,
 				6087BF32256A838F00684CB0 /* RemoteImage.swift in Sources */,
 				60025C1C254C012900B9D7FE /* ContentView.swift in Sources */,
-				60C2E0C8254E687E0012D28B /* PlaceMapper.swift in Sources */,
-				60C2E0CF254EC8920012D28B /* HomeInteractor.swift in Sources */,
-				60025C4F254DF5FE00B9D7FE /* PlaceEntity.swift in Sources */,
 				60C2E0CB254EC6AE0012D28B /* Injection.swift in Sources */,
-				60C2E0D2254EC9180012D28B /* DetailInteractor.swift in Sources */,
-				60F5FEC2256D4720009C946E /* FavoritePresenter.swift in Sources */,
-				60025C45254DF31700B9D7FE /* RemoteDataSource.swift in Sources */,
-				60025C3B254DEAC100B9D7FE /* Place.swift in Sources */,
-				60C2E0E4254EFE9D0012D28B /* DetailPresenter.swift in Sources */,
 				60F5FEBF256D470A009C946E /* FavoriteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,10 +686,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 60636FAF25D7C57A006CBA1C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
-		};
-		60F7364F25D4216C00934028 /* Core */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Core;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
